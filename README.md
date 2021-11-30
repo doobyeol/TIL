@@ -8,13 +8,16 @@
 
 <br/>
 
-### 🔥 Spring Framework
+### 📗 Spring Framework
 
 | 날짜       | 제목                         | 설명                                       | 링크                                           |
 | ---------- | --------------------------- | ------------------------------------------ | ---------------------------------------------- |
-| 2021.11.29 | 애매하게 아는 것 == 모르는 것 | 취직,면접을 위한 TIP, 협업하기 좋은 개발자란  | [링크](https://velog.io/@doobyeol/아는-것-애매하게-아는-것-모르는-것) |
-| 2021.11.29 | 자바, 스프링, 스프링 부트     | JAVA, Spring Pramework, Spring Boot의 특징 | [링크](https://velog.io/@doobyeol/자바-스프링-스프링-부트) |
+| 2021.11.30 | 관점 지향 프로그래밍 AOP| 패캠 초격차 Part1. Spring Framework-Ch.02 필기| [링크](https://velog.io/@doobyeol/관점-지향-프로그래밍-AOP) |
+| 2021.11.30 | IoC, DI, Bean, 스프링 컨테이너| 패캠 초격차 Part1. Spring Framework-Ch.02 필기| [링크](https://velog.io/@doobyeol/IoC-DI-Bean-스프링-컨테이너) |
+| 2021.11.30 | 스프링의 Core Technology| 패캠 초격차 Part1. Spring Framework-Ch.02 필기| [링크](https://velog.io/@doobyeol/스프링의-Core-Technology) |
 | 2021.11.29 | IntelliJ 설치 및 스프링 프로젝트 생성| IntelliJ 설치, Spring 프로젝트 생성| [링크](https://velog.io/@doobyeol/IntelliJ-설치-및-스프링-프로젝트-생성) |
+| 2021.11.29 | 자바, 스프링, 스프링 부트     | JAVA, Spring Pramework, Spring Boot의 특징 | [링크](https://velog.io/@doobyeol/자바-스프링-스프링-부트) |
+| 2021.11.29 | 애매하게 아는 것 == 모르는 것 | 취직,면접을 위한 TIP, 협업하기 좋은 개발자란  | [링크](https://velog.io/@doobyeol/아는-것-애매하게-아는-것-모르는-것) |
 
 
 
