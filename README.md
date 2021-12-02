@@ -10,8 +10,12 @@
 
 ### 📗 Spring Framework
 
-| 날짜       | 제목                         | 설명                                       | 링크                                           |
-| ---------- | --------------------------- | ------------------------------------------ | ---------------------------------------------- |
+| 날짜         | 제목                         | 설명                                       | 링크                                           |
+|------------| --------------------------- | ------------------------------------------ | ---------------------------------------------- |
+| 2021.12.01 | NullSafety| 패캠 초격차 Part1. Spring Framework-Ch.02 필기| [링크](https://velog.io/@doobyeol/21-12-01-NullSafety) |
+| 2021.12.01 | Spring Expression Language(SpEL)| 패캠 초격차 Part1. Spring Framework-Ch.02 필기| [링크](https://velog.io/@doobyeol/21-12-01-SpEL) |
+| 2021.12.01 | Spring Resource| 패캠 초격차 Part1. Spring Framework-Ch.02 필기| [링크](https://velog.io/@doobyeol/21-12-01-SpringResource) |
+| 2021.12.01 | Validation in Spring, Data Binding| 패캠 초격차 Part1. Spring Framework-Ch.02 필기| [링크](https://velog.io/@doobyeol/21-12-02-Spring) |
 | 2021.11.30 | 관점 지향 프로그래밍 AOP| 패캠 초격차 Part1. Spring Framework-Ch.02 필기| [링크](https://velog.io/@doobyeol/관점-지향-프로그래밍-AOP) |
 | 2021.11.30 | IoC, DI, Bean, 스프링 컨테이너| 패캠 초격차 Part1. Spring Framework-Ch.02 필기| [링크](https://velog.io/@doobyeol/IoC-DI-Bean-스프링-컨테이너) |
 | 2021.11.30 | 스프링의 Core Technology| 패캠 초격차 Part1. Spring Framework-Ch.02 필기| [링크](https://velog.io/@doobyeol/스프링의-Core-Technology) |
@@ -23,6 +27,7 @@
 
 ### 🔍 TIL
 
-| 날짜       | 제목                         | 설명                                       | 링크                                           |
-| ---------- | --------------------------- | ------------------------------------------ | ---------------------------------------------- |
-| 2021.11.30 | VS CODE 에서 Spring 프로젝트 실행하기 | 확장팩 설치, 자바 버전업, 경로 셋팅  | [링크](https://velog.io/@doobyeol/VS-CODE-에서-Spring-프로젝트-실행하기) |
+| 날짜         | 제목                         | 설명                                       | 링크                                           |
+|------------| --------------------------- | ------------------------------------------ | ---------------------------------------------- |
+| 2021.12.01 | GitHub 프로필 꾸미기 | 깃꾸 하는 법!              | [링크](https://velog.io/@doobyeol/깃꾸-GitHub-프로필-꾸미기) |
+| 2021.11.30 | VS CODE 에서 Spring 프로젝트 실행하기 | 확장팩 설치, 자바 버전업, 경로 셋팅 | [링크](https://velog.io/@doobyeol/VS-CODE-에서-Spring-프로젝트-실행하기) |
