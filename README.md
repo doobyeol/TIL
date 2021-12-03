@@ -10,9 +10,9 @@
 
 ### 📗 Spring Framework
 
-| 날짜         | 제목                         | 설명                                      | 링크                                           |
-|------------| --------------------------- |-----------------------------------------| ---------------------------------------------- |
-| 2021.12.03 | 아주 단순한 구조(1 Layer)의 어플리케이션| 패캠 초격차 Part1. Spring Framework-Ch.03 필기 | [링크](https://velog.io/@doobyeol/아주-단순한-구조1-Layer의-어플리케이션)
+| 날짜         | 제목                        | 설명                                      | 링크                                           |
+|------------| -------------------------- |-----------------------------------------| ---------------------------------------------- |
+| 2021.12.03 | 아주 단순한 구조의 어플리케이션| 패캠 초격차 Part1. Spring Framework-Ch.03 필기 | [링크](https://velog.io/@doobyeol/아주-단순한-구조1-Layer의-어플리케이션)
 | 2021.12.03 | HTTP 스펙이란?| 패캠 초격차 Part1. Spring Framework-Ch.03 필기 | [링크](https://velog.io/@doobyeol/HTTP-스펙이란)
 | 2021.12.03 | 룸복이란?| 패캠 초격차 Part1. Spring Framework-Ch.03 필기 | [링크](https://velog.io/@doobyeol/룸복이란)
 | 2021.12.01 | NullSafety| 패캠 초격차 Part1. Spring Framework-Ch.02 필기 | [링크](https://velog.io/@doobyeol/21-12-01-NullSafety) |
@@ -23,7 +23,7 @@
 | 2021.11.30 | IoC, DI, Bean, 스프링 컨테이너| 패캠 초격차 Part1. Spring Framework-Ch.02 필기 | [링크](https://velog.io/@doobyeol/IoC-DI-Bean-스프링-컨테이너) |
 | 2021.11.30 | 스프링의 Core Technology| 패캠 초격차 Part1. Spring Framework-Ch.02 필기 | [링크](https://velog.io/@doobyeol/스프링의-Core-Technology) |
 | 2021.11.29 | IntelliJ 설치 및 스프링 프로젝트 생성| IntelliJ 설치, Spring 프로젝트 생성             | [링크](https://velog.io/@doobyeol/IntelliJ-설치-및-스프링-프로젝트-생성) |
-| 2021.11.29 | 자바, 스프링, 스프링 부트     | JAVA, Spring Pramework, Spring Boot의 특징 | [링크](https://velog.io/@doobyeol/자바-스프링-스프링-부트) |
+| 2021.11.29 | 자바, 스프링, 스프링 부트    | JAVA, Spring Pramework, Spring Boot의 특징 | [링크](https://velog.io/@doobyeol/자바-스프링-스프링-부트) |
 | 2021.11.29 | 애매하게 아는 것 == 모르는 것 | 취직,면접을 위한 TIP, 협업하기 좋은 개발자란             | [링크](https://velog.io/@doobyeol/아는-것-애매하게-아는-것-모르는-것) |
 
 
