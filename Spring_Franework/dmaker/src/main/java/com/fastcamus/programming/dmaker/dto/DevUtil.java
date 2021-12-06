@@ -1,4 +1,4 @@
-package com.example.spring.demo.dto;
+package com.fastcamus.programming.dmaker.dto;
 
 
 import lombok.experimental.UtilityClass;

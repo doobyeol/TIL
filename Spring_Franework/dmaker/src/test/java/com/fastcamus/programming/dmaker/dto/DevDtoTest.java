@@ -1,8 +1,10 @@
-package com.example.spring.demo.dto;
+package com.fastcamus.programming.dmaker.dto;
 
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
+
+import com.fastcamus.programming.dmaker.dto.DevDto;
 
 class DevDtoTest {
     @Test
