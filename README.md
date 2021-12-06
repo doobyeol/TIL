@@ -32,7 +32,7 @@
 
 | 날짜         | 제목                         | 설명                                       | 링크                                           |
 |------------| --------------------------- | ------------------------------------------ | ---------------------------------------------- |
-| 2021.12.06 | VS CODE 에서 Lombok 사용하기| vscode The import lombok cannot be resolved 에러 해결| [링크](https://velog.io/@doobyeol/VS-CODE-에서-Lombok-사용하기) |
+| 2021.12.06 | VS CODE 에서 Lombok 사용하기| The import lombok cannot be resolved 해결| [링크](https://velog.io/@doobyeol/VS-CODE-에서-Lombok-사용하기) |
 | 2021.12.02 | 어서와 리눅스는 처음이지?       | 리눅스 기초 명령어, 연습사이트     | [링크](https://velog.io/@doobyeol/리눅스-기초-명령어) |
 | 2021.12.01 | GitHub 프로필 꾸미기          | 깃꾸 하는 법!              | [링크](https://velog.io/@doobyeol/깃꾸-GitHub-프로필-꾸미기) |
 | 2021.11.30 | VS CODE 에서 Spring 프로젝트 실행하기 | 확장팩 설치, 자바 버전업, 경로 셋팅 | [링크](https://velog.io/@doobyeol/VS-CODE-에서-Spring-프로젝트-실행하기) |
