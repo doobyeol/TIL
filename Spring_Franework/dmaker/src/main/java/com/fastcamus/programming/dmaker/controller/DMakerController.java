@@ -1,14 +1,15 @@
 package com.fastcamus.programming.dmaker.controller;
 
-import com.fastcamus.programming.dmaker.repository.DeveloperRepository;
+import com.fastcamus.programming.dmaker.dto.CreateDeveloper;
 import com.fastcamus.programming.dmaker.service.DMakerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.swing.*;
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -33,13 +34,15 @@ public class DMakerController {
         return Arrays.asList("snow","elsa","olaf");
     }
 
-    @GetMapping("/create-developers")
-    public List<String> createDevelopers(){
+    @PostMapping("/create-developers")
+    public CreateDeveloper.Response createDevelopers(
+            @Valid @RequestBody CreateDeveloper.Request request // 요청값을 받아온다.
+    ){
         // GET /developers HTTP/1.1 요청이 들어오면 여기 로직을 타게 된다.
-        log.info("GET /create-developers HTTP/1.1"); // 원래는 POST 쓰는것을 권장
+        // log.info("GET /create-developers HTTP/1.1"); // 원래는 POST 쓰는것을 권장
 
-        dMakerService.createDeveloper();
+        log.info("request : {}", request);
 
-        return Collections.singletonList("olaf");
+        return dMakerService.createDeveloper(request);
     }
 }

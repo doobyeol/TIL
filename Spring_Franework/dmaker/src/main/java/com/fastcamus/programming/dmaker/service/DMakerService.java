@@ -1,16 +1,23 @@
 package com.fastcamus.programming.dmaker.service;
 
+import com.fastcamus.programming.dmaker.dto.CreateDeveloper;
 import com.fastcamus.programming.dmaker.entity.Developer;
+import com.fastcamus.programming.dmaker.exception.DMakerErrorCode;
+import com.fastcamus.programming.dmaker.exception.DMakerException;
 import com.fastcamus.programming.dmaker.repository.DeveloperRepository;
 import com.fastcamus.programming.dmaker.type.DeveloperLevel;
 import com.fastcamus.programming.dmaker.type.DeveloperSkillType;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
+
+import java.util.Optional;
+
+import static com.fastcamus.programming.dmaker.exception.DMakerErrorCode.DUPLICATED_MEMBER_ID;
+import static com.fastcamus.programming.dmaker.exception.DMakerErrorCode.LEVEL_EXPERIENCE_YEARS_NOT_MATCHED;
 
 @Service
 @RequiredArgsConstructor // 자동으로 injection
@@ -25,7 +32,9 @@ public class DMakerService {
     }*/
 
     @Transactional // ACID 특성을 가짐 , // 공통적이고 반복적인 로직이 불필요 try catch rollback
-    public void createDeveloper(){
+    public CreateDeveloper.Response createDeveloper(CreateDeveloper.Request request){
+        validateCreateDeveloperRequest(request);
+
        // EntityTransaction transaction = em.getTransaction();
         //try {
             //transaction.begin();
@@ -33,11 +42,12 @@ public class DMakerService {
             // business logic start
 
             Developer developer = Developer.builder()
-                    .developerLevel(DeveloperLevel.JUNIOR)
-                    .developerSkillType(DeveloperSkillType.FRONT_END)
-                    .experienceYears(2)
-                    .name("Olaf")
-                    .age(5)
+                    .developerLevel(request.getDeveloperLevel())
+                    .developerSkillType(request.getDeveloperSkillType())
+                    .experienceYears(request.getExperienceYears())
+                    .name(request.getName())
+                    .age(request.getAge())
+                    .memberId(request.getMemberId())
                     .build();
             
             // a-> b 1만원 송금 로직
@@ -48,14 +58,43 @@ public class DMakerService {
 
             // business logic end
 
-
             //transaction.commit();
         //}catch (Exception e){
             //transaction.rollback();
             //throw e;
         //}
 
+            return CreateDeveloper.Response.fromEntity(developer);
 
+    }
 
+    private void validateCreateDeveloperRequest(CreateDeveloper.Request request) {
+        // business validataion 비즈니스 검증
+        DeveloperLevel developerLevel = request.getDeveloperLevel();
+        Integer experienceYears = request.getExperienceYears();
+        if(developerLevel == DeveloperLevel.SENIOR
+                && experienceYears < 10) {
+            throw new DMakerException(LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
+        }
+
+        if(developerLevel == DeveloperLevel.JUNIOR
+            && ( experienceYears < 4 ||
+                experienceYears > 10)){
+            throw new DMakerException(LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
+        }
+
+        if(developerLevel == DeveloperLevel.JUNIOR && experienceYears > 4) {
+            throw new DMakerException(LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
+        }
+
+        //Optional<Developer> developer = developerRepository.findByMemberId(request.getMemberId());
+        developerRepository.findByMemberId(request.getMemberId())
+        .ifPresent((developer -> {
+            throw new DMakerException(DUPLICATED_MEMBER_ID);
+        }));
+
+        /*if (developer.isPresent()) {
+            throw new DMakerException(DUPLICATED_MEMBER_ID)
+        }*/
     }
 }
