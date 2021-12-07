@@ -14,7 +14,6 @@ import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor // 자동으로 injection
-@Transactional // 공통적이고 반복적인 로직이 불필요 try catch rollback
 public class DMakerService {
     //@Autowired
     //@Inject
@@ -25,9 +24,9 @@ public class DMakerService {
         this.developerRepository = developerRepository;
     }*/
 
-    @Transactional // ACID 특성을 가짐
+    @Transactional // ACID 특성을 가짐 , // 공통적이고 반복적인 로직이 불필요 try catch rollback
     public void createDeveloper(){
-        EntityTransaction transaction = em.getTransaction();
+       // EntityTransaction transaction = em.getTransaction();
         //try {
             //transaction.begin();
 
