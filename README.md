@@ -34,6 +34,7 @@
 
 | 날짜         | 제목                          | 설명                                 | 링크                                           |
 |------------|-----------------------------|------------------------------------| ---------------------------------------------- |
+| 2021.12.08 | VS code JAVA import 에러   | cannot be resolved to a typeJava               | [링크](https://velog.io/@doobyeol/VS-code-JAVA-import-에러) |
 | 2021.12.07 | Postman을 활용한 http test 방법   | Postman 설치, http 테스트               | [링크](https://velog.io/@doobyeol/Postman을-활용한-http-test-방법) |
 | 2021.12.06 | VS CODE 에서 Lombok 사용하기      | The import lombok cannot be resolved 해결 | [링크](https://velog.io/@doobyeol/VS-CODE-에서-Lombok-사용하기) |
 | 2021.12.02 | 어서와 리눅스는 처음이지?              | 리눅스 기초 명령어, 연습사이트                  | [링크](https://velog.io/@doobyeol/리눅스-기초-명령어) |
