@@ -1,17 +1,15 @@
 package com.fastcamus.programming.dmaker.controller;
 
 import com.fastcamus.programming.dmaker.dto.CreateDeveloper;
+import com.fastcamus.programming.dmaker.dto.DeveloperDetailDto;
+import com.fastcamus.programming.dmaker.dto.DeveloperDto;
+import com.fastcamus.programming.dmaker.dto.EditDeveloper;
 import com.fastcamus.programming.dmaker.service.DMakerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -27,14 +25,24 @@ public class DMakerController {
 
 
     @GetMapping("/developers")
-    public List<String> getAllDevelopers(){
+    public List<DeveloperDto> getAllDevelopers(){
         // GET /developers HTTP/1.1 요청이 들어오면 여기 로직을 타게 된다.
         log.info("GET /developers HTTP/1.1");
 
-        return Arrays.asList("snow","elsa","olaf");
+        return dMakerService.getAllEmployedDevelopers();
     }
 
-    @PostMapping("/create-developers")
+    @GetMapping("/developer/{memberId}")  // http://localhost:8080/developer/Mini
+    public DeveloperDetailDto getAllDeveloperDetail(
+            @PathVariable String memberId
+    ){
+        // GET /developers HTTP/1.1 요청이 들어오면 여기 로직을 타게 된다.
+        log.info("GET /developer/memberId HTTP/1.1");
+
+        return dMakerService.getDeveloperDetail(memberId);
+    }
+
+    @PostMapping("/create-developer")
     public CreateDeveloper.Response createDevelopers(
             @Valid @RequestBody CreateDeveloper.Request request // 요청값을 받아온다.
     ){
@@ -44,5 +52,24 @@ public class DMakerController {
         log.info("request : {}", request);
 
         return dMakerService.createDeveloper(request);
+    }
+
+    @PutMapping("/developer/{memberId}")
+    public DeveloperDetailDto editDeveloper(
+            @PathVariable String memberId,
+            @Valid @RequestBody EditDeveloper.Request request // 요청값을 받아온다.
+    ){
+        // GET /developers HTTP/1.1 요청이 들어오면 여기 로직을 타게 된다.
+        log.info("GET /developer/memberId edit HTTP/1.1");
+
+        return dMakerService.editDeveloper(memberId, request);
+    }
+
+
+    @DeleteMapping("/developer/{memberId}")
+    public DeveloperDetailDto deleteDeveloper(
+            @PathVariable String memberId
+    ){
+        return dMakerService.deleteDeveloper(memberId);
     }
 }
