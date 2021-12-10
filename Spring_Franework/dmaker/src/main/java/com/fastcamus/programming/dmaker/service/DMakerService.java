@@ -7,6 +7,7 @@ import com.fastcamus.programming.dmaker.dto.DeveloperDto;
 import com.fastcamus.programming.dmaker.dto.EditDeveloper;
 import com.fastcamus.programming.dmaker.entity.Developer;
 import com.fastcamus.programming.dmaker.entity.RetiredDeveloper;
+import com.fastcamus.programming.dmaker.exception.DMakerErrorCode;
 import com.fastcamus.programming.dmaker.exception.DMakerException;
 import com.fastcamus.programming.dmaker.repository.DeveloperRepository;
 import com.fastcamus.programming.dmaker.repository.RetiredDeveloperRepository;
@@ -38,7 +39,10 @@ public class DMakerService {
     @Transactional // ACID 특성을 가짐 , // 공통적이고 반복적인 로직이 불필요 try catch rollback
     public CreateDeveloper.Response createDeveloper(CreateDeveloper.Request request){
         validateCreateDeveloperRequest(request);
-
+        /*boolean validationResult = validateCreateDeveloperRequest2(request);
+        if (!validationResult){
+            return CreateDeveloper.Response(DUPLICATED_MEMBER_ID);
+        }*/
        // EntityTransaction transaction = em.getTransaction();
         //try {
             //transaction.begin();
@@ -89,6 +93,28 @@ public class DMakerService {
         /*if (developer.isPresent()) {
             throw new DMakerException(DUPLICATED_MEMBER_ID)
         }*/
+    }
+
+    private boolean validateCreateDeveloperRequest2(CreateDeveloper.Request request) {
+        validateDeveloperLevel(
+                request.getDeveloperLevel(),
+                request.getExperienceYears()
+        );
+
+        try {
+            developerRepository.findByMemberId(request.getMemberId())
+                    .ifPresent((developer -> {
+                        throw new DMakerException(DUPLICATED_MEMBER_ID);
+                    }));
+
+        }catch (DMakerException ex){
+            return false;
+        }
+
+        if(request.getDeveloperLevel() != DeveloperLevel.SENIOR){
+            return false;
+        }
+        return true;
     }
 
     public List<DeveloperDto> getAllEmployedDevelopers() {
@@ -160,7 +186,7 @@ public class DMakerService {
         //developerRepository.save(developer);
        // if(developer != null) throw new DMakerException((NO_DEVELOPER)); // rollback
 
-        // 2. save into RetiredDeveloper
+        // 2. save into RetiredDeveloper..
         RetiredDeveloper retiredDeveloper = RetiredDeveloper.builder()
                 .memberId(memberId)
                 .name(developer.getName())

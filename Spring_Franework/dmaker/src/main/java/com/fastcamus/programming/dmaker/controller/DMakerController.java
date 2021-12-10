@@ -1,14 +1,14 @@
 package com.fastcamus.programming.dmaker.controller;
 
-import com.fastcamus.programming.dmaker.dto.CreateDeveloper;
-import com.fastcamus.programming.dmaker.dto.DeveloperDetailDto;
-import com.fastcamus.programming.dmaker.dto.DeveloperDto;
-import com.fastcamus.programming.dmaker.dto.EditDeveloper;
+import com.fastcamus.programming.dmaker.dto.*;
+import com.fastcamus.programming.dmaker.exception.DMakerException;
 import com.fastcamus.programming.dmaker.service.DMakerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -48,7 +48,13 @@ public class DMakerController {
     ){
         // GET /developers HTTP/1.1 요청이 들어오면 여기 로직을 타게 된다.
         // log.info("GET /create-developers HTTP/1.1"); // 원래는 POST 쓰는것을 권장
-
+        /*
+        try {
+            return dMakerService.createDeveloper(request);
+        }catch (Exception e){
+            return xxx;
+        } ---> @ExceptionHandler
+        */
         log.info("request : {}", request);
 
         return dMakerService.createDeveloper(request);
@@ -71,5 +77,15 @@ public class DMakerController {
             @PathVariable String memberId
     ){
         return dMakerService.deleteDeveloper(memberId);
+    }
+
+    @ResponseStatus(value = HttpStatus.CONFLICT)
+    @ExceptionHandler(DMakerException.class)
+    public DMakerErrorResponse handleException (DMakerException e, HttpServletRequest request){
+        log.error("errorCode : {}, url:{}, message:{}", e.getDMakerErrorCode(), request.getRequestURI(), e.getDetailMessage());
+        return DMakerErrorResponse.builder()
+                .errorCode(e.getDMakerErrorCode())
+                .errorMessage(e.getDetailMessage())
+                .build();
     }
 }

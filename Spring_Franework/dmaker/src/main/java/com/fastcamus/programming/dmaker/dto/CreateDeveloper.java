@@ -51,6 +51,8 @@ public class CreateDeveloper {
         private Integer experienceYears;
         private String memberId;
 
+        /*private ErrorCode errorCode;
+        private String errorMessage;*/
 
         public static Response fromEntity(Developer developer){
             return Response.builder()
