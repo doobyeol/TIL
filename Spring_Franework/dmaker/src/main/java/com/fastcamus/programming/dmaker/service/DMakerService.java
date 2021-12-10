@@ -93,6 +93,8 @@ public class DMakerService {
         /*if (developer.isPresent()) {
             throw new DMakerException(DUPLICATED_MEMBER_ID)
         }*/
+
+        //throw new ArrayIndexOutOfBoundsException();
     }
 
     private boolean validateCreateDeveloperRequest2(CreateDeveloper.Request request) {

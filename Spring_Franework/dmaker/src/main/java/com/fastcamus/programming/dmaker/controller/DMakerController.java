@@ -79,13 +79,5 @@ public class DMakerController {
         return dMakerService.deleteDeveloper(memberId);
     }
 
-    @ResponseStatus(value = HttpStatus.CONFLICT)
-    @ExceptionHandler(DMakerException.class)
-    public DMakerErrorResponse handleException (DMakerException e, HttpServletRequest request){
-        log.error("errorCode : {}, url:{}, message:{}", e.getDMakerErrorCode(), request.getRequestURI(), e.getDetailMessage());
-        return DMakerErrorResponse.builder()
-                .errorCode(e.getDMakerErrorCode())
-                .errorMessage(e.getDetailMessage())
-                .build();
-    }
+
 }
