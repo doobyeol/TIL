@@ -37,6 +37,7 @@ public class DMakerService {
     }*/
 
     @Transactional // ACID 특성을 가짐 , // 공통적이고 반복적인 로직이 불필요 try catch rollback
+    // cntl + shift + T 테스트
     public CreateDeveloper.Response createDeveloper(CreateDeveloper.Request request){
         validateCreateDeveloperRequest(request);
         /*boolean validationResult = validateCreateDeveloperRequest2(request);
