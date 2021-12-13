@@ -12,6 +12,7 @@
 
 | 날짜         | 제목                        | 설명                                      | 링크                                           |
 |------------| -------------------------- |-----------------------------------------| ---------------------------------------------- |
+| 2021.12.13 | 테스트를 잘 하는 방법| 패캠 초격차 Part1. Spring Framework-Ch.05 필기 | [링크](https://velog.io/@doobyeol/테스트를-잘-하는-방법) |
 | 2021.12.06 | Transaction의 개념| 패캠 초격차 Part1. Spring Framework-Ch.03 필기 | [링크](https://velog.io/@doobyeol/Transaction의-개념) |
 | 2021.12.06 | H2 DB| 패캠 초격차 Part1. Spring Framework-Ch.03 필기 | [링크](https://velog.io/@doobyeol/H2-DB) |
 | 2021.12.03 | 아주 단순한 구조의 어플리케이션| 패캠 초격차 Part1. Spring Framework-Ch.03 필기 | [링크](https://velog.io/@doobyeol/아주-단순한-구조1-Layer의-어플리케이션) |
