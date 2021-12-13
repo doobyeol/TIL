@@ -77,12 +77,14 @@ class DMakerServiceTest {
         System.out.println("============================");*/
 
 
-
+        // given
         given(developerRepository.findByMemberId(anyString()))
                 .willReturn(Optional.of(defaultDeveloper));
 
+        // when
         DeveloperDetailDto developerDetailDto = dMakerService.getDeveloperDetail("memberId");
 
+        // then
         assertEquals(SENIOR, developerDetailDto.getDeveloperLevel());
         assertEquals(FRONT_END, developerDetailDto.getDeveloperSkillType());
         assertEquals(12, developerDetailDto.getExperienceYears());
