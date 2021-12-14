@@ -12,11 +12,13 @@ import com.fastcamus.programming.dmaker.exception.DMakerException;
 import com.fastcamus.programming.dmaker.repository.DeveloperRepository;
 import com.fastcamus.programming.dmaker.repository.RetiredDeveloperRepository;
 import com.fastcamus.programming.dmaker.type.DeveloperLevel;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,7 +40,7 @@ public class DMakerService {
 
     @Transactional // ACID 특성을 가짐 , // 공통적이고 반복적인 로직이 불필요 try catch rollback
     // cntl + shift + T 테스트
-    public CreateDeveloper.Response createDeveloper(CreateDeveloper.Request request){
+    public CreateDeveloper.Response createDeveloper(@NonNull CreateDeveloper.Request request){
         validateCreateDeveloperRequest(request);
         /*boolean validationResult = validateCreateDeveloperRequest2(request);
         if (!validationResult){
@@ -120,12 +122,14 @@ public class DMakerService {
         return true;
     }
 
+    @Transactional(readOnly = true) // get이긴 하지만 나중에 추가적인 기능이 들어가면 Transactional 잡아줘서 동작하도록. 데이터 변경 방지
     public List<DeveloperDto> getAllEmployedDevelopers() {
         return developerRepository.findDevelopersByStatusCodeEquals(StatusCode.EMPLOYED)
                 .stream().map(DeveloperDto::fromEntity)
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public DeveloperDetailDto getDeveloperDetail(String memberId) {
         return developerRepository.findByMemberId(memberId)
                 .map(DeveloperDetailDto::fromEntity)
@@ -137,7 +141,7 @@ public class DMakerService {
                     // developer 엔티티에 값을 바꿔준 다음
                     // 전체 체킹을 해서 변경된 사항을 커밋이 되도록
     public DeveloperDetailDto editDeveloper(String memberId, EditDeveloper.Request request) {
-        validateEditDeveloperRequest(request, memberId);
+        validateDeveloperLevel(request.getDeveloperLevel(), request.getExperienceYears());
 
         Developer developer = developerRepository.findByMemberId(memberId).orElseThrow(
                 () -> new DMakerException(NO_DEVELOPER)
@@ -150,17 +154,7 @@ public class DMakerService {
         return DeveloperDetailDto.fromEntity(developer);
     }
 
-    private void validateEditDeveloperRequest(EditDeveloper.Request request, String memberId) {
-        validateDeveloperLevel(
-                request.getDeveloperLevel(),
-                request.getExperienceYears()
-        );
 
-        developerRepository.findByMemberId(memberId).orElseThrow(
-                () -> new DMakerException(NO_DEVELOPER)
-        );
-
-    }
 
     private void validateDeveloperLevel( DeveloperLevel developerLevel, Integer experienceYears) {
         if(developerLevel == DeveloperLevel.SENIOR

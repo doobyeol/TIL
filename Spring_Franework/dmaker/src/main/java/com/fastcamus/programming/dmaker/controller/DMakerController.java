@@ -34,7 +34,7 @@ public class DMakerController {
 
     @GetMapping("/developer/{memberId}")  // http://localhost:8080/developer/Mini
     public DeveloperDetailDto getAllDeveloperDetail(
-            @PathVariable String memberId
+            @PathVariable final String memberId
     ){
         // GET /developers HTTP/1.1 요청이 들어오면 여기 로직을 타게 된다.
         log.info("GET /developer/memberId HTTP/1.1");
