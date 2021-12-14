@@ -22,6 +22,8 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.fastcamus.programming.dmaker.constant.DMakerConstant.MAX_JUNIOR_EXPERIENCE_YEAS;
+import static com.fastcamus.programming.dmaker.constant.DMakerConstant.MIN_SENIOR_EXPERIENCE_YEAS;
 import static com.fastcamus.programming.dmaker.exception.DMakerErrorCode.*;
 
 @Service
@@ -171,17 +173,17 @@ public class DMakerService {
 
     private void validateDeveloperLevel( DeveloperLevel developerLevel, Integer experienceYears) {
         if(developerLevel == DeveloperLevel.SENIOR
-                && experienceYears < 10) {
+                && experienceYears < MIN_SENIOR_EXPERIENCE_YEAS) {
             throw new DMakerException(LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
         }
 
         if(developerLevel == DeveloperLevel.JUNIOR
-                && ( experienceYears < 4 ||
-                experienceYears > 10)){
+                && ( experienceYears < MAX_JUNIOR_EXPERIENCE_YEAS ||
+                experienceYears > MIN_SENIOR_EXPERIENCE_YEAS)){
             throw new DMakerException(LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
         }
 
-        if(developerLevel == DeveloperLevel.JUNIOR && experienceYears > 4) {
+        if(developerLevel == DeveloperLevel.JUNIOR && experienceYears > MAX_JUNIOR_EXPERIENCE_YEAS) {
             throw new DMakerException(LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
         }
     }
