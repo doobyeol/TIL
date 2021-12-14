@@ -7,7 +7,6 @@ import com.fastcamus.programming.dmaker.dto.DeveloperDto;
 import com.fastcamus.programming.dmaker.dto.EditDeveloper;
 import com.fastcamus.programming.dmaker.entity.Developer;
 import com.fastcamus.programming.dmaker.entity.RetiredDeveloper;
-import com.fastcamus.programming.dmaker.exception.DMakerErrorCode;
 import com.fastcamus.programming.dmaker.exception.DMakerException;
 import com.fastcamus.programming.dmaker.repository.DeveloperRepository;
 import com.fastcamus.programming.dmaker.repository.RetiredDeveloperRepository;
@@ -52,19 +51,10 @@ public class DMakerService {
 
             // business logic start
 
-            Developer developer = Developer.builder()
-                    .developerLevel(request.getDeveloperLevel())
-                    .developerSkillType(request.getDeveloperSkillType())
-                    .experienceYears(request.getExperienceYears())
-                    .name(request.getName())
-                    .age(request.getAge())
-                    .memberId(request.getMemberId())
-                    .statusCode(StatusCode.EMPLOYED)
-                    .build();
-            
+
             // a-> b 1만원 송금 로직
             // a 계좌에서 1만원 줄임
-            developerRepository.save(developer); // 영속화, DB저장
+            // developerRepository.save(createDeveloperFromRequest(request)); // 영속화, DB저장
             // b계좌에서 1만원 늘림
             //developerRepository.delete(developer1);
 
@@ -76,8 +66,24 @@ public class DMakerService {
             //throw e;
         //}
 
-            return CreateDeveloper.Response.fromEntity(developer);
+            return CreateDeveloper.Response.fromEntity(
+                    developerRepository.save(
+                            createDeveloperFromRequest(request)
+                    )
+            );
 
+    }
+
+    public Developer createDeveloperFromRequest(CreateDeveloper.Request request){
+        return Developer.builder()
+                .developerLevel(request.getDeveloperLevel())
+                .developerSkillType(request.getDeveloperSkillType())
+                .experienceYears(request.getExperienceYears())
+                .name(request.getName())
+                .age(request.getAge())
+                .memberId(request.getMemberId())
+                .statusCode(StatusCode.EMPLOYED)
+                .build();
     }
 
     private void validateCreateDeveloperRequest(CreateDeveloper.Request request) {
@@ -129,11 +135,15 @@ public class DMakerService {
                 .collect(Collectors.toList());
     }
 
+    private Developer getDeveloperByMemberId(String memberId){
+        return developerRepository.findByMemberId(memberId)
+                .orElseThrow(() -> new DMakerException(NO_DEVELOPER));
+
+    }
+
     @Transactional(readOnly = true)
     public DeveloperDetailDto getDeveloperDetail(String memberId) {
-        return developerRepository.findByMemberId(memberId)
-                .map(DeveloperDetailDto::fromEntity)
-                .orElseThrow(() -> new DMakerException(NO_DEVELOPER));
+        return DeveloperDetailDto.fromEntity(getDeveloperByMemberId(memberId));
     }
 
     // 실제 DB 반영되도록 @Transactional 키워드를 통해서
@@ -143,17 +153,20 @@ public class DMakerService {
     public DeveloperDetailDto editDeveloper(String memberId, EditDeveloper.Request request) {
         validateDeveloperLevel(request.getDeveloperLevel(), request.getExperienceYears());
 
-        Developer developer = developerRepository.findByMemberId(memberId).orElseThrow(
-                () -> new DMakerException(NO_DEVELOPER)
+        return DeveloperDetailDto.fromEntity(
+                getUpdatedDeveloperFromRequest(
+                        request, getDeveloperByMemberId(memberId)
+                )
         );
+    }
 
+    private Developer getUpdatedDeveloperFromRequest(EditDeveloper.Request request, Developer developer) {
         developer.setDeveloperLevel(request.getDeveloperLevel());
         developer.setDeveloperSkillType(request.getDeveloperSkillType());
         developer.setExperienceYears(request.getExperienceYears());
 
-        return DeveloperDetailDto.fromEntity(developer);
+        return developer;
     }
-
 
 
     private void validateDeveloperLevel( DeveloperLevel developerLevel, Integer experienceYears) {

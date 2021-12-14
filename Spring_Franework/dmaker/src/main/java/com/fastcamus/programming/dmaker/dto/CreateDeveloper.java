@@ -54,7 +54,7 @@ public class CreateDeveloper {
         /*private ErrorCode errorCode;
         private String errorMessage;*/
 
-        public static Response fromEntity(Developer developer){
+        public static Response fromEntity(@NonNull Developer developer){
             return Response.builder()
                 .developerSkillType(developer.getDeveloperSkillType())
                 .developerLevel(developer.getDeveloperLevel())

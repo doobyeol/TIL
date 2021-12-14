@@ -1,6 +1,7 @@
 package com.fastcamus.programming.dmaker.entity;
 
 import com.fastcamus.programming.dmaker.code.StatusCode;
+import com.fastcamus.programming.dmaker.dto.CreateDeveloper;
 import com.fastcamus.programming.dmaker.type.DeveloperLevel;
 import com.fastcamus.programming.dmaker.type.DeveloperSkillType;
 import lombok.*;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor // Builder와 함께 사용 권장
 @AllArgsConstructor // Builder와 함께 사용 권장
-@Entity
+@Entity // DB와의 연동 ORM을 위한 특수한 클래스
 @EntityListeners(AuditingEntityListener.class)
 public class Developer {
 
@@ -44,6 +45,7 @@ public class Developer {
 
     @LastModifiedDate
     private LocalDateTime updateAt;
+
 
 
 }
