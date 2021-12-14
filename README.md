@@ -35,7 +35,7 @@
 
 | 날짜         | 제목                          | 설명                                 | 링크                                           |
 |------------|-----------------------------|------------------------------------| ---------------------------------------------- |
-| 2021.12.08 | pgAdmin4 DB 연결, DUMP   | DUMP를 뜨는 목적과 방법               | [링크](https://velog.io/@doobyeol/pgAdmin4-DB-연결-DUMP)|
+| 2021.12.13 | pgAdmin4 DB 연결, DUMP   | DUMP를 뜨는 목적과 방법               | [링크](https://velog.io/@doobyeol/pgAdmin4-DB-연결-DUMP)|
 | 2021.12.08 | VS code HTTP TEST (Thunder Client)   | Thunder Client 설명               | [링크](https://velog.io/@doobyeol/VS-code-HTTP-TEST-Thunder-Client) |
 | 2021.12.08 | VS code JAVA import 에러   | cannot be resolved to a typeJava               | [링크](https://velog.io/@doobyeol/VS-code-JAVA-import-에러) |
 | 2021.12.07 | Postman을 활용한 HTTP TEST 방법   | Postman 설치, HTTP 테스트               | [링크](https://velog.io/@doobyeol/Postman을-활용한-http-test-방법) |
