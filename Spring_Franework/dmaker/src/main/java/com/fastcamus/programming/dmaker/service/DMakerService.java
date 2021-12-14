@@ -88,12 +88,14 @@ public class DMakerService {
                 .build();
     }
 
-    private void validateCreateDeveloperRequest(CreateDeveloper.Request request) {
+    private void validateCreateDeveloperRequest(@NonNull CreateDeveloper.Request request) {
         // business validataion 비즈니스 검증
-        validateDeveloperLevel(
+
+        request.getDeveloperLevel().validateExperienceYears((request.getExperienceYears()));
+        /*validateDeveloperLevel(
                 request.getDeveloperLevel(),
                 request.getExperienceYears()
-        );
+        );*/
 
         //Optional<Developer> developer = developerRepository.findByMemberId(request.getMemberId());
         developerRepository.findByMemberId(request.getMemberId())
@@ -108,7 +110,7 @@ public class DMakerService {
         //throw new ArrayIndexOutOfBoundsException();
     }
 
-    private boolean validateCreateDeveloperRequest2(CreateDeveloper.Request request) {
+/*    private boolean validateCreateDeveloperRequest2(CreateDeveloper.Request request) {
         validateDeveloperLevel(
                 request.getDeveloperLevel(),
                 request.getExperienceYears()
@@ -128,7 +130,7 @@ public class DMakerService {
             return false;
         }
         return true;
-    }
+    }*/
 
     @Transactional(readOnly = true) // get이긴 하지만 나중에 추가적인 기능이 들어가면 Transactional 잡아줘서 동작하도록. 데이터 변경 방지
     public List<DeveloperDto> getAllEmployedDevelopers() {
@@ -153,7 +155,7 @@ public class DMakerService {
                     // developer 엔티티에 값을 바꿔준 다음
                     // 전체 체킹을 해서 변경된 사항을 커밋이 되도록
     public DeveloperDetailDto editDeveloper(String memberId, EditDeveloper.Request request) {
-        validateDeveloperLevel(request.getDeveloperLevel(), request.getExperienceYears());
+        request.getDeveloperLevel().validateExperienceYears(request.getExperienceYears());
 
         return DeveloperDetailDto.fromEntity(
                 getUpdatedDeveloperFromRequest(
@@ -170,23 +172,6 @@ public class DMakerService {
         return developer;
     }
 
-
-    private void validateDeveloperLevel( DeveloperLevel developerLevel, Integer experienceYears) {
-        if(developerLevel == DeveloperLevel.SENIOR
-                && experienceYears < MIN_SENIOR_EXPERIENCE_YEAS) {
-            throw new DMakerException(LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
-        }
-
-        if(developerLevel == DeveloperLevel.JUNIOR
-                && ( experienceYears < MAX_JUNIOR_EXPERIENCE_YEAS ||
-                experienceYears > MIN_SENIOR_EXPERIENCE_YEAS)){
-            throw new DMakerException(LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
-        }
-
-        if(developerLevel == DeveloperLevel.JUNIOR && experienceYears > MAX_JUNIOR_EXPERIENCE_YEAS) {
-            throw new DMakerException(LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
-        }
-    }
 
 
     @Transactional // DB조작
