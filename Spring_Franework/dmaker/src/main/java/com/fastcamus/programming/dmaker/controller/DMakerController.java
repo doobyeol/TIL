@@ -18,11 +18,10 @@ import java.util.List;
                 // 사실 컴포넌트와는 동일한 타입이다. (bean 등록)
 @RequiredArgsConstructor
 public class DMakerController {
-    private final DMakerService dMakerService;
+    private final DMakerService dMakerService; // 서비스에 의존
 
     // DMakerController(Bean)    DMakerService(Bean)  DeveloperRepository(Bean)
     // ===================== Spring Application Context =======================
-
 
     @GetMapping("/developers")
     public List<DeveloperDto> getAllDevelopers(){
