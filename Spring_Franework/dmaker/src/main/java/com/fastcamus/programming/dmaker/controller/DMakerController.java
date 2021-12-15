@@ -23,7 +23,6 @@ public class DMakerController {
     // DMakerController(Bean)    DMakerService(Bean)  DeveloperRepository(Bean)
     // ===================== Spring Application Context =======================
 
-
     @GetMapping("/developers")
     public List<DeveloperDto> getAllDevelopers(){
         // GET /developers HTTP/1.1 요청이 들어오면 여기 로직을 타게 된다.
