@@ -13,6 +13,7 @@ import com.fastcamus.programming.dmaker.repository.RetiredDeveloperRepository;
 import com.fastcamus.programming.dmaker.type.DeveloperLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,12 +30,14 @@ import static com.fastcamus.programming.dmaker.exception.DMakerErrorCode.*;
 @Service
 @RequiredArgsConstructor // 자동으로 injection
 public class DMakerService {
+    @Value("${developer.level.min.senior}")
+    private final Integer minSeniorYears;
     //@Autowired
     //@Inject
     // 서비스 코드가 어노테이션에 종속적으로 담겨있기 때문에 서비스를 단독으로 만들기 어려움
     private final DeveloperRepository developerRepository; // 자동으로 injection
     private final RetiredDeveloperRepository retiredDeveloperRepository; // 자동으로 injection
-    private final EntityManager em; /// DB 추상화
+    //private final EntityManager em; /// DB 추상화
     /*public DMakerService(DeveloperRepository developerRepository) {
         this.developerRepository = developerRepository;
     }*/
