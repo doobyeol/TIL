@@ -35,6 +35,7 @@
 
 | 날짜         | 제목                          | 설명                                 | 링크                                           |
 |------------|-----------------------------|------------------------------------| ---------------------------------------------- |
+| 2021.12.14 | pgAdmin4 DUMP Import  | 개발서버 데이터베이스 셋팅 테스트 | [링크](https://velog.io/@doobyeol/pgAdmin4-DUMP-Import)|
 | 2021.12.13 | pgAdmin4 file not found 에러  | file not found 에러 해결 | [링크](https://velog.io/@doobyeol/pgAdmin4-file-not-found-에러)|
 | 2021.12.13 | pgAdmin4 DB 연결, DUMP   | DUMP를 뜨는 목적과 방법               | [링크](https://velog.io/@doobyeol/pgAdmin4-DB-연결-DUMP)|
 | 2021.12.08 | VS code HTTP TEST (Thunder Client)   | Thunder Client 설명               | [링크](https://velog.io/@doobyeol/VS-code-HTTP-TEST-Thunder-Client) |
