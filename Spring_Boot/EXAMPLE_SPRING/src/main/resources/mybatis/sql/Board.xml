@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mvc.repository.BoardRepository">
+	<select id="getList" parameterType="com.example.demo.mvc.domain.Board" resultType="com.example.demo.mvc.domain.Board">
+		SELECT 
+			B.BOARD_SEQ,
+			B.TITLE,
+			B.CONTENTS,
+			B.REG_DATE
+		FROM T_BOARD B
+		ORDER BY B.REG_DATE DESC
+	</select>
+	
+	<select id="get" parameterType="int" resultType="com.example.demo.mvc.domain.Board">
+		SELECT 
+			B.BOARD_SEQ,
+			B.TITLE,
+			B.CONTENTS,
+			B.REG_DATE
+		FROM T_BOARD B
+		WEHER B.BOARD_SEQ = #{boardSeq}
+	</select>
+	
+	<insert id="save" parameterType="int">
+		INSERT INTO T_BOARD
+		(
+			TITLE,
+			CONTENTS,
+			REG_DATE
+		)
+		VALUES
+		(
+			#{title},
+			#{contents},
+			NOW()
+		)
+	</insert>
+	
+	
+	<update id="update" parameterType="com.example.demo.mvc.domain.Board">
+		UPDATE T_BOARD 
+		SET
+			TITLE = #{title},
+			CONTENTS = #{contents}
+		WEHER B.BOARD_SEQ = #{boardSeq}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM T_BOARD 
+		WEHER B.BOARD_SEQ = #{boardSeq}
+	</delete>
+</mapper>
