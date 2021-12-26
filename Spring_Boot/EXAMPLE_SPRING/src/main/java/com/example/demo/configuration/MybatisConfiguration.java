@@ -18,17 +18,19 @@ import org.springframework.context.annotation.Configuration;
  * @author 두별
  */
 @Configuration
-@MapperScan(basePackages = "com.example.mvc.repository")
+@MapperScan(basePackages = "com.example.demo.mvc.repository")
 public class MybatisConfiguration {
 
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(@Autowired DataSource dataSource, ApplicationContext applicationContext) throws Exception{
 		
-		SqlSessionFactoryBean factory = new SqlSessionFactoryBean();
-		factory.setDataSource(dataSource);
-		factory.setMapperLocations(applicationContext.getResources("classpath:mybatis/sql/*.xml"));
+		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+		factoryBean.setDataSource(dataSource);
+		factoryBean.setMapperLocations(applicationContext.getResources("classpath:mybatis/sql/*.xml"));
 		
-		return factory.getObject();
+		SqlSessionFactory factory = factoryBean.getObject();
+		factory.getConfiguration().setMapUnderscoreToCamelCase(true);
+		return factory;
 	}
 	
 	@Bean
