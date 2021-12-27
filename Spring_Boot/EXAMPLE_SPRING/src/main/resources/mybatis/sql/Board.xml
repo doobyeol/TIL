@@ -22,7 +22,7 @@
 		WEHER B.BOARD_SEQ = #{boardSeq}
 	</select>
 	
-	<insert id="save" parameterType="int" useGeneratedKeys="true" keyProperty="boardSeq">
+	<insert id="save" parameterType="com.example.demo.mvc.parameter.BoardParameter" useGeneratedKeys="true" keyProperty="boardSeq">
 		INSERT INTO T_BOARD
 		(
 			TITLE,

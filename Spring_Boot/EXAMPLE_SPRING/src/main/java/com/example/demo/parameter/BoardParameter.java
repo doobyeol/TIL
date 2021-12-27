@@ -1,13 +1,12 @@
-package com.example.demo.mvc.domain;
+package com.example.demo.parameter;
 
 import java.util.Date;
 
 import lombok.Data;
 
 @Data
-public class Board {
+public class BoardParameter {
 	private int boardSeq;
 	private String title;
 	private String content;
-	private Date reqDate;
 }
