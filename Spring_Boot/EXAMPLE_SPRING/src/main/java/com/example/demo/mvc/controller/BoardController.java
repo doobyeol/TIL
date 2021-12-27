@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.configuration.http.BaseResponse;
 import com.example.demo.mvc.domain.Board;
 import com.example.demo.mvc.service.BoardService;
 import com.example.demo.parameter.BoardParameter;
@@ -39,8 +40,8 @@ public class BoardController {
 	 */
 	@GetMapping
 	@ApiOperation(value = "목록 조회", notes = "게시물 목록 정보를 조회할 수 있습니다.")
-	public List<Board> getList(){
-		return boardService.getList();
+	public BaseResponse<List<Board>> getList(){
+		return new BaseResponse<List<Board>>(boardService.getList());
 	}
 	
 	
@@ -54,8 +55,8 @@ public class BoardController {
 	@ApiImplicitParams({
 		@ApiImplicitParam(name = "boardSeq", value = "게시물 번호", example = "1" )
 	})
-	public Board get(@PathVariable int boardSeq) {
-		return boardService.get(boardSeq);
+	public BaseResponse<Board> get(@PathVariable int boardSeq) {
+		return new BaseResponse<Board>(boardService.get(boardSeq));
 	}
 
 	/**
@@ -69,9 +70,9 @@ public class BoardController {
 		@ApiImplicitParam(name = "title", value = "제목", example = "spring" ),
 		@ApiImplicitParam(name = "contents", value = "내용", example = "spirng 강좌" )
 	})
-	public int save(BoardParameter parameter) {
+	public BaseResponse<Integer> save(BoardParameter parameter) {
 		boardService.save(parameter);
-		return parameter.getBoardSeq();
+		return new BaseResponse<Integer>(parameter.getBoardSeq());
 	}
 
 
@@ -84,13 +85,13 @@ public class BoardController {
 	@ApiImplicitParams({
 		@ApiImplicitParam(name = "boardSeq", value = "게시물 번호", example = "1" )
 	})
-	public boolean delete(@PathVariable int boardSeq) {
+	public BaseResponse<Boolean> delete(@PathVariable int boardSeq) {
 		Board board = boardService.get(boardSeq);
 		if(board == null) {
-			return false;
+			return new BaseResponse<Boolean>(false);
 		}
 		boardService.delete(boardSeq);
-		return true;
+		return new BaseResponse<Boolean>(true);
 	}
 	
 }
