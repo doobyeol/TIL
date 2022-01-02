@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.mvc.domain.Board;
 import com.example.demo.mvc.repository.BoardRepository;
+import com.example.demo.parameter.BoardParameter;
 
 /**
  * 게시판 Service
@@ -42,7 +43,7 @@ public class BoardService {
 	 * @param board
 	 * @return 
 	 */
-	public int save(Board parameter) {
+	public int save(BoardParameter parameter) {
 		// 조회하여 리턴된 정보
 		Board board = repository.get(parameter.getBoardSeq());
 		if(board == null) {

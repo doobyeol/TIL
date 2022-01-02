@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +16,7 @@ import com.example.demo.configuration.http.BaseResponse;
 import com.example.demo.configuration.http.BaseResponseCode;
 import com.example.demo.mvc.domain.Board;
 import com.example.demo.mvc.service.BoardService;
+import com.example.demo.parameter.BoardParameter;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -40,8 +42,9 @@ public class BoardController {
 	 * @return
 	 */
 	@GetMapping
-	public List<Board> getList(){
-		return boardService.getList();
+	@ApiOperation(value = "목록 조회", notes = "게시물 목록 정보를 조회할 수 있습니다.")
+	public BaseResponse<List<Board>> getList(){
+		return new BaseResponse<List<Board>>(boardService.getList());
 	}
 	
 	
@@ -81,7 +84,7 @@ public class BoardController {
 			throw new BaseException(BaseResponseCode.VALIDATE_REQUIRED, new String[] {"title", "제목"});
 		}
 		// 내용 필수체크
-		if(StringUtils.isEmpty(parameter.getContents())) {
+		if(StringUtils.isEmpty(parameter.getContent())) {
 			throw new BaseException(BaseResponseCode.VALIDATE_REQUIRED, new String[] {"contents", "내용"});
 		}
 		boardService.save(parameter);
@@ -93,14 +96,18 @@ public class BoardController {
 	 * 삭제 처리
 	 * @param boardSeq
 	 */
-	@GetMapping("/delete/{boardSeq}")
-	public boolean delete(@PathVariable int boardSeq) {
+	@DeleteMapping("/{boardSeq}")
+	@ApiOperation(value = "삭제 처리", notes = "게시물 번호에 해당하는 정보를 삭제합니다.")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name = "boardSeq", value = "게시물 번호", example = "1" )
+	})
+	public BaseResponse<Boolean> delete(@PathVariable int boardSeq) {
 		Board board = boardService.get(boardSeq);
 		if(board == null) {
-			return false;
+			return new BaseResponse<Boolean>(false);
 		}
 		boardService.delete(boardSeq);
-		return true;
+		return new BaseResponse<Boolean>(true);
 	}
 	
 }

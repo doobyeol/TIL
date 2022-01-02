@@ -3,8 +3,8 @@ package com.example.demo.configuration.http;
 import lombok.Data;
 
 /**
- * 공통으로 사용할 응답 클래스.
- * @author 송자바
+ * 공통으로 사용할 응답 클래스
+ * @author 두별
  * @param <T>
  */
 @Data
