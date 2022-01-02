@@ -2,13 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mvc.repository.BoardRepository">
-	<select id="getList" parameterType="com.example.demo.mvc.domain.Board" resultType="com.example.demo.mvc.domain.Board">
+	<select id="getList" parameterType="com.example.demo.mvc.parameter.BoardSearchParameter" resultType="com.example.demo.mvc.domain.Board">
 		SELECT 
 			B.BOARD_SEQ,
 			B.TITLE,
 			B.CONTENTS,
 			B.REG_DATE
 		FROM T_BOARD B
+		<where>
+			<!--  키워드 검색 -->
+			<if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(keyword)">
+			AND B.TITLE LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<!-- 게시판 종류 배열 검색 -->
+			<if test="@org.apache.commons.lang3.ObjectUtils@isNotEmpty(boardTypes)">
+			AND B.BOARD_TYPE IN (
+				<foreach collection="boardTypes" item="value" separator=",">
+				#{value}
+				</foreach>
+			)
+			</if>
+			
+		</where>
 		ORDER BY B.REG_DATE DESC
 	</select>
 	

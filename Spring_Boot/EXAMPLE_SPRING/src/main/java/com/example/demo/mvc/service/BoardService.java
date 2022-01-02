@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.mvc.domain.Board;
 import com.example.demo.mvc.repository.BoardRepository;
 import com.example.demo.parameter.BoardParameter;
+import com.example.demo.parameter.BoardSearchParameter;
 
 /**
  * 게시판 Service
@@ -24,8 +25,8 @@ public class BoardService {
 	 * 목록 리턴
 	 * @return
 	 */
-	public List<Board> getList(){
-		return repository.getList();
+	public List<Board> getList(BoardSearchParameter parameter){
+		return repository.getList(parameter);
 	}
 	
 	
