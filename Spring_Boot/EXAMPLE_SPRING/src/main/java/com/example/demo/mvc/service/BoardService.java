@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.framework.data.domain.PageRequestParameter;
 import com.example.demo.mvc.domain.Board;
 import com.example.demo.mvc.repository.BoardRepository;
 import com.example.demo.parameter.BoardParameter;
@@ -23,10 +24,11 @@ public class BoardService {
 	
 	/**
 	 * 목록 리턴
+	 * @param pageRequestParameter
 	 * @return
 	 */
-	public List<Board> getList(BoardSearchParameter parameter){
-		return repository.getList(parameter);
+	public List<Board> getList(PageRequestParameter<BoardSearchParameter> pageRequestParameter) {
+		return repository.getList(pageRequestParameter);
 	}
 	
 	

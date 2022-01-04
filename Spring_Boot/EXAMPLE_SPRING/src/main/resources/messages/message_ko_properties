@@ -1,5 +1,6 @@
 SUCCESS = 정상적으로 처리되었습니다.
 ERROR = 오류가 발생했습니다.
 DATA_IS_NULL = 요청하신 {0} 데이터는 Null 입니다.
+LOGIN_REQUIRED = 요청하신 {0} URL은 로그인이 필수 입니다.
 
 VALIDATE_REQUIRED = {0}({1}) 필드는 필수로 입력해야 합니다.
