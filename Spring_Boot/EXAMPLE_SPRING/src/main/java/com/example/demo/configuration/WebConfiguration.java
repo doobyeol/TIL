@@ -63,4 +63,9 @@ public class WebConfiguration implements WebMvcConfigurer {
 		// 페이지 리졸버 등록
 		resolvers.add(new MySQLPageRequestHandleMethodArgumentResolver());
 	}
+	
+	@Bean
+	public GlobalConfig config() {
+		return new GlobalConfig();
+	}
 }
