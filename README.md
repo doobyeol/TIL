@@ -40,6 +40,7 @@
 
 | 날짜         | 제목                          | 설명                                 | 링크                                           |
 |------------|-----------------------------|------------------------------------| ---------------------------------------------- |
+| 2022.01.24 | IntelliJ Java 버전 셋팅하기 | Gradle 환경 구축시 자바 버전 에러 | [링크](https://velog.io/@doobyeol/java-warning-source-release-11-requires-target-release-11)|
 | 2021.12.22 | [Google Charts] Mixed Content Error  | 구굴차트 보안 에러 | [링크](https://velog.io/@doobyeol/Google-Charts-Mixed-Content-Error)|
 | 2021.12.14 | pgAdmin4 DUMP Import  | 개발서버 데이터베이스 셋팅 테스트 | [링크](https://velog.io/@doobyeol/pgAdmin4-DUMP-Import)|
 | 2021.12.13 | pgAdmin4 file not found 에러  | file not found 에러 해결 | [링크](https://velog.io/@doobyeol/pgAdmin4-file-not-found-에러)|
