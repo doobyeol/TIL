@@ -20,22 +20,34 @@
         //     // 정희할 내용 
         // });
 
+        // 즉시 실행 함수
+        (function () {
+            function init() {
+                Object.defineProperty(viewModel, 'str', { // 객체의 동작을 재정의하는 API
 
+                    // 속성에 접근했을 때의 동작을 정의
+                    get: function () {
+                        console.log('접근');
 
-        Object.defineProperty(viewModel, 'str', { // 객체의 동작을 재정의하는 API
+                    },
 
-            // 속성에 접근했을 때의 동작을 정의
-            get: function () {
-                console.log('접근');
-
-            },
-
-            // 속성에 값을 할당했을 때의 동작을 정의
-            set: function (newValue) {
-                console.log('할당', newValue);
-                div.innerHTML = newValue;
+                    // 속성에 값을 할당했을 때의 동작을 정의
+                    set: function (newValue) {
+                        console.log('할당', newValue);
+                        render(newValue);
+                    }
+                });
             }
-        });
+
+            function render(value) {
+                div.innerHTML = value;
+            }
+
+            init();
+        })();
+
+
+
     </script>
 </body>
 
