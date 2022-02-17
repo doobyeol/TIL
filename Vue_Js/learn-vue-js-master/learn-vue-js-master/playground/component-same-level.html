@@ -8,15 +8,17 @@
 </head>
 <body>
     <div id="app">
-        <app-header></app-header>
-        <app-content></app-content>
+        <!-- <app-header v-bind=:프롭스 속성 이름="상위 컴포넌트의 데이터 이름"></app-header> -->
+        <app-header v-bind:propsdata="num"></app-header>
+        <app-content v-on:pass="deliverNum"></app-content>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
         var appHeader = {
-            template: '<div>header</div>'
+            template: '<div>header</div>',
+            props: ['propsdata']
         }
 
         var appContent = {
@@ -37,6 +39,12 @@
             },
             data: {
                 num: 0
+            },
+            methods: {
+                deliverNum: function(value){
+                    this.num = value;
+                    console.log(this.num);
+                }
             }
         });
     </script>
