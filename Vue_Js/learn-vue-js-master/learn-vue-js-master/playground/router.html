@@ -10,6 +10,7 @@
 
 <body>
     <div id="app">
+        <router-view></router-view>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -19,18 +20,21 @@
             template: '<div>login</div>'
         }
         var MainComponent = {
-            template: '<div>Main</div>'
+            template: '<div>main</div>'
         }
 
         var router = new VueRouter({
-            // 페이지의 라우팅 정보
+            // 페이지의 라우팅 정보      
             routes: [
+                // 로그인 페이지 정보
                 {
                     // 페이지의 url
                     path: '/login',
+                    // name: 'login',
                     // 해당 url에서 표시될 컴포넌트
                     component: LoginComponent
                 },
+                // 메인 페이지 정보
                 {
                     path: '/main',
                     component: MainComponent
@@ -40,7 +44,7 @@
 
         new Vue({
             el: '#app',
-            router: router
+            router: router,
         });
     </script>
 
