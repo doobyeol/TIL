@@ -45,19 +45,20 @@
 
 ### 🔍 TIL
 
-| 날짜         | 제목                          | 설명                                 | 링크                                           |
-|------------|-----------------------------|------------------------------------| ---------------------------------------------- |
-| 2022.01.24 | IntelliJ Java 버전 셋팅하기 | Gradle 환경 구축시 자바 버전 에러 | [링크](https://velog.io/@doobyeol/java-warning-source-release-11-requires-target-release-11)|
-| 2021.12.22 | [Google Charts] Mixed Content Error  | 구굴차트 보안 에러 | [링크](https://velog.io/@doobyeol/Google-Charts-Mixed-Content-Error)|
-| 2021.12.14 | pgAdmin4 DUMP Import  | 개발서버 데이터베이스 셋팅 테스트 | [링크](https://velog.io/@doobyeol/pgAdmin4-DUMP-Import)|
-| 2021.12.13 | pgAdmin4 file not found 에러  | file not found 에러 해결 | [링크](https://velog.io/@doobyeol/pgAdmin4-file-not-found-에러)|
-| 2021.12.13 | pgAdmin4 DB 연결, DUMP   | DUMP를 뜨는 목적과 방법               | [링크](https://velog.io/@doobyeol/pgAdmin4-DB-연결-DUMP)|
-| 2021.12.08 | VS code HTTP TEST (Thunder Client)   | Thunder Client 설명               | [링크](https://velog.io/@doobyeol/VS-code-HTTP-TEST-Thunder-Client) |
-| 2021.12.08 | VS code JAVA import 에러   | cannot be resolved to a typeJava               | [링크](https://velog.io/@doobyeol/VS-code-JAVA-import-에러) |
-| 2021.12.07 | Postman을 활용한 HTTP TEST 방법   | Postman 설치, HTTP 테스트               | [링크](https://velog.io/@doobyeol/Postman을-활용한-http-test-방법) |
+| 날짜         | 제목                          | 설명                                      | 링크                                           |
+|------------|-----------------------------|-----------------------------------------| ---------------------------------------------- |
+| 2022.03.18 | HTTP 웹 기본 지식 | 모든 개발자를 위한 HTTP 웹 기본 지식  | [링크](https://velog.io/@doobyeol/HTTP-웹-기본-지식)|
+| 2022.01.24 | IntelliJ Java 버전 셋팅하기 | Gradle 환경 구축시 자바 버전 에러                  | [링크](https://velog.io/@doobyeol/java-warning-source-release-11-requires-target-release-11)|
+| 2021.12.22 | [Google Charts] Mixed Content Error  | 구굴차트 보안 에러                              | [링크](https://velog.io/@doobyeol/Google-Charts-Mixed-Content-Error)|
+| 2021.12.14 | pgAdmin4 DUMP Import  | 개발서버 데이터베이스 셋팅 테스트                      | [링크](https://velog.io/@doobyeol/pgAdmin4-DUMP-Import)|
+| 2021.12.13 | pgAdmin4 file not found 에러  | file not found 에러 해결                    | [링크](https://velog.io/@doobyeol/pgAdmin4-file-not-found-에러)|
+| 2021.12.13 | pgAdmin4 DB 연결, DUMP   | DUMP를 뜨는 목적과 방법                         | [링크](https://velog.io/@doobyeol/pgAdmin4-DB-연결-DUMP)|
+| 2021.12.08 | VS code HTTP TEST (Thunder Client)   | Thunder Client 설명                       | [링크](https://velog.io/@doobyeol/VS-code-HTTP-TEST-Thunder-Client) |
+| 2021.12.08 | VS code JAVA import 에러   | cannot be resolved to a typeJava        | [링크](https://velog.io/@doobyeol/VS-code-JAVA-import-에러) |
+| 2021.12.07 | Postman을 활용한 HTTP TEST 방법   | Postman 설치, HTTP 테스트                    | [링크](https://velog.io/@doobyeol/Postman을-활용한-http-test-방법) |
 | 2021.12.06 | VS CODE 에서 Lombok 사용하기      | The import lombok cannot be resolved 해결 | [링크](https://velog.io/@doobyeol/VS-CODE-에서-Lombok-사용하기) |
-| 2021.12.02 | 어서와 리눅스는 처음이지?              | 리눅스 기초 명령어, 연습사이트                  | [링크](https://velog.io/@doobyeol/리눅스-기초-명령어) |
-| 2021.12.01 | GitHub 프로필 꾸미기              | 깃꾸 하는 법!                           | [링크](https://velog.io/@doobyeol/깃꾸-GitHub-프로필-꾸미기) |
-| 2021.11.30 | VS CODE 에서 Spring 프로젝트 실행하기 | 확장팩 설치, 자바 버전업, 경로 셋팅              | [링크](https://velog.io/@doobyeol/VS-CODE-에서-Spring-프로젝트-실행하기) |
+| 2021.12.02 | 어서와 리눅스는 처음이지?              | 리눅스 기초 명령어, 연습사이트                       | [링크](https://velog.io/@doobyeol/리눅스-기초-명령어) |
+| 2021.12.01 | GitHub 프로필 꾸미기              | 깃꾸 하는 법!                                | [링크](https://velog.io/@doobyeol/깃꾸-GitHub-프로필-꾸미기) |
+| 2021.11.30 | VS CODE 에서 Spring 프로젝트 실행하기 | 확장팩 설치, 자바 버전업, 경로 셋팅                   | [링크](https://velog.io/@doobyeol/VS-CODE-에서-Spring-프로젝트-실행하기) |
 
 
