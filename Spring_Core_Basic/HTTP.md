@@ -155,3 +155,96 @@ TCP 세그먼트
 3. 접속 : 200.200.200.2
 
 DNS 서버가 있으면 위 두개의 문제가 해결됨.
+
+
+
+
+> URI와 웹 브라우저 요청 흐름
+
+# URI
+소스를 식별하기 위한 통합된 방법
+
+## URI와 웹 브라우저 요청 흐름
+- URI
+- 웹 브라우저 요청 흐름
+
+## URI?URL?URN?
+
+URI는 로케이터, 이름 또는 둘다 추가로 분류될 수 있다.
+
+URL은 scheme://authority/path/query/fragement
+
+URN은 ResoureName
+
+## URI
+단어 뜻
+- Uniform : 리소스 식별하는 통일된 방식
+- Resource: 자원, URI로 식별할 수 있는 모든 것. 제한 없음
+- Identifier: 다른 항목과 구분하는데 필요한 정보
+
+- URL : Uniform Resource Locator
+- URN : Uniform Resource Name
+
+## URL, URN
+- URL : Locator : 리소스가 있는 위치를 지정
+- URN : Name : 리소스에 이름을 부여
+- 위치는 변할 수 있찌만 이름은 변하지 않는다.
+- URN 이름만으로 실제 리소스를 찾을 수 있는 방법이 보편화 되지 않음
+- 앞으로 URI == URL 같은 의미로 설명
+
+## URL 전체 문법
+- 프로토콜 https
+- 호스트명 www.google.com
+- 포트번호 8080
+- 패스 /search
+- 쿼리 파라미터 q=hello
+
+
+## URL scheme
+스키마
+
+- 주로 프로토콜 사용
+- 어떤 방식으로 자원에 접근할 것인가 하는 약속 규칙 http, https, ftp 등
+- http는 80포트, https는 443포트 주로 사용, 포트는 생략 가능
+- https는 http에 강력한 보안이 적용된 것
+
+## URL host
+- 호스트명
+- 도메인명 또는 IP주소를 직접 사용 가능
+
+## URL port
+- port
+- 접속 포트
+- 생략가능
+
+## URL path
+- 리소스 경로, 계층적 구조
+
+## URL query
+- key value 형태
+- ?로 시작, &로 추가 가능
+- query parameter, query string 등으로 불림, 웹서버에 제공하는 파라미터 문자형태
+
+## URL fragment
+- html 내부 북마크 등에 사용
+- 서버에 전송하는 정보 아님
+
+# 웹 브라우저 요청 흐름
+
+
+## HTTP 요청 메시지
+GET /search?q=hello HTTP/1.1
+Host: www.google.com
+
+## HTTP 메시지 전송
+1. 웹 브라우저가 HTTP 메시지 생성
+2. SOCKET 라이브러리를 통해 전달
+- A:TCP/IP 연결 (IP, PORT)
+- B: 데이터 전달
+3. TCP/IP 패킷 생성, HTTP 메시지 포함
+
+## HTTP 응답 메시지
+- HTML 데이터가 들어있다.
+- 웹 브라우저가 렌더링 한다.
+
+
