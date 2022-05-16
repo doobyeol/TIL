@@ -10,7 +10,7 @@ public class HomeWork0514 {
         System.out.println("#### 1. 1~10까지 홀수의 합 ####");
         int total = 0;
         for (int i = 0; i < 10; i++) {
-            if (i % 2 != 0) {
+            if ((i & 1) == 1) {
                 total += i;
             }
         }
