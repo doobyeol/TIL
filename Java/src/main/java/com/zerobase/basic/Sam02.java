@@ -1,4 +1,4 @@
-package com.zerobase;
+package com.zerobase.basic;
 
 public class Sam02 {
     public static void main(String[] args) {
