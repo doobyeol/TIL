@@ -17,10 +17,10 @@ import java.util.Scanner;
          * 상태를 "대기중"으로 변경
  */
 public class Cafe {
-    static String [] menuList = new String[5];
-    static String  status = "대기중";
-    
-    Cafe() {
+    private String [] menuList = new String[5];
+    private String status = "대기중";
+
+    public Cafe() {
         menuList[0] = "아메리카노";
         menuList[1] = "카푸치노";
         menuList[2] = "바닐라라떼";
@@ -28,7 +28,7 @@ public class Cafe {
         menuList[4] = "마자그란";
     }
 
-    public static void showMenuList() {
+    public void showMenuList() {
         System.out.println("========= 메뉴판 =========");
         for (String menu : menuList) {
             System.out.println(menu);
@@ -36,14 +36,14 @@ public class Cafe {
         System.out.println("=========================");
     }
 
-    public static void orderStart () {
-        status = "제조중";
+    public void orderStart () {
         if (status.equals("제조중")) {
             System.out.println("잠시 기다려주세요");
         }
+        status = "제조중";
     }
 
-    public static void orderEnd (String menu) {
+    public void orderEnd (String menu) {
         System.out.println(menu + " 나왔습니다~");
         status = "대기중";
     }
@@ -52,14 +52,14 @@ public class Cafe {
 
         Cafe cafe = new Cafe();
         Scanner scanner = new Scanner(System.in);
-        showMenuList();
+        cafe.showMenuList();
 
         while (true) {
             System.out.println("메뉴를 선택해주세요.");
             String menu = scanner.next();
 
-            orderStart();
-            orderEnd(menu);
+            cafe.orderStart();
+            cafe.orderEnd(menu);
             System.out.println();
         }
 
