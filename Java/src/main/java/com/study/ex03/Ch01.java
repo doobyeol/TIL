@@ -1,4 +1,4 @@
-package com.study;
+package com.study.ex03;
 
 public class Ch01 {
 

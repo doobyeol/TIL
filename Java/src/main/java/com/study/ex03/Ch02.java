@@ -1,4 +1,4 @@
-package com.study;
+package com.study.ex03;
 
 /**
  * Chapter02 - 연산자(Operator)

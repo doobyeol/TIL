@@ -1,4 +1,4 @@
-package com.study;
+package com.study.ex03;
 
 import java.util.Scanner;
 
