@@ -64,15 +64,13 @@ public class Practice01 {
         personList = list.stream().sorted((p1, p2) -> {
             int p1Age = p1.getAge();
             int p2Age = p2.getAge();
-            return p1Age > p2Age ? 1 : (p1Age == p2Age ? 0 : -1);
+            return p1Age < p2Age ? 1 : (p1Age == p2Age ? 0 : -1);
         }).collect(Collectors.toList());
 
         System.out.println("======== 나이가 내림차순으로 정렬된 List 를 만드세요. ========");
         personList.forEach((person) -> {
             System.out.println(person.getName() + "(" + person.getAge()+ ")");
         });
-
-
     }
 }
 class Person {
