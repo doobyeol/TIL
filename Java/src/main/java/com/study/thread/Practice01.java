@@ -7,11 +7,11 @@ public class Practice01 extends Thread{
     public static int number = 0;
 
     @Override
-    public void run() {
+    public synchronized void run() {
         number ++;
     }
 
-    public static synchronized void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         // TODO
         Practice01[] thread = new Practice01[10];
         for(int i = 0 ; i < 10 ; i ++){
