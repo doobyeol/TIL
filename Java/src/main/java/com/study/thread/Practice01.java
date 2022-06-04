@@ -14,7 +14,7 @@ public class Practice01 extends Thread{
     public static void main(String[] args) throws Exception {
         // TODO
         Practice01[] thread = new Practice01[10];
-        for(int i = 0 ; i < 10 ; i ++){
+        for (int i = 0 ; i < 10 ; i ++) {
             thread[i] = new Practice01();
             thread[i].start();
         }

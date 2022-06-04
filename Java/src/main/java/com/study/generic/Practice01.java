@@ -6,6 +6,10 @@ public class Practice01 {
         Mapper<Integer, String> mapper = new Mapper<>();
         String result = mapper.map(12345); // result = "12345"
         System.out.println(result);
+
+        Mapper<String, Integer> mapper2 = new Mapper<>();
+        Integer result2 = mapper2.map("12345"); // result2 = 12345
+        System.out.println(result2);
     }
 }
 
@@ -14,7 +18,13 @@ public class Practice01 {
 class Mapper<T, R> {
 
     public R map (T param) {
-        return (R) param.toString();
+        if (param instanceof String) {
+            return (R) Integer.valueOf(String.valueOf(param));
+        } else if (param instanceof Integer) {
+            return (R) param.toString();
+        } else {
+            return null;
+        }
     }
 
 }

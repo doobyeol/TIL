@@ -31,8 +31,8 @@ public class Practice01 {
         
         // TODO: 성이 '이' 씨인 사람들만 추출하세요.
         personList = list.stream().filter(person -> {
-            String firstName = person.getName().substring(0, 1);
-            return firstName.equals("이");
+//            String firstName = person.getName().substring(0, 1);
+            return person.getName().startsWith("이");
         }).collect(Collectors.toList());
 
         System.out.println("======== 성이 '이' 씨인 사람들만 추출하세요. ========");
@@ -41,14 +41,18 @@ public class Practice01 {
         });
 
         // TODO: 20대인 사람들만 추출해 "이름(나이)" 형태의 List<String> 를 만드세요.
-        personList = list.stream().filter(person -> {
-            int age = person.getAge();
-            return age >= 20 && age <= 29;
-        }).collect(Collectors.toList());
+        List<String> personList2 = list.stream().filter(person -> {
+                int age = person.getAge();
+                return age >= 20 && age <= 29;
+            })
+            .map(person -> { // 역할 : type 변환
+                return person.getName() + "(" + person.getAge()+ ")";
+            })
+            .collect(Collectors.toList());
 
         System.out.println("======== 20대인 사람들만 추출해 \"이름(나이)\" 형태의 List<String> 를 만드세요. ========");
-        personList.forEach((person) -> {
-            System.out.println(person.getName() + "(" + person.getAge()+ ")");
+        personList2.forEach((person) -> {
+            System.out.println(person);
         });
 
         // TODO: 30대가 몇 명인지 구하시오.
