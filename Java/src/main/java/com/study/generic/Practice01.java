@@ -19,7 +19,7 @@ class Mapper<T, R> {
 
     public R map (T param) {
         if (param instanceof String) {
-            return (R) Integer.valueOf(String.valueOf(param));
+            return (R) Integer.valueOf((String) param);
         } else if (param instanceof Integer) {
             return (R) param.toString();
         } else {

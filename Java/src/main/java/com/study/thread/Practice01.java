@@ -7,19 +7,22 @@ public class Practice01 extends Thread{
     public static int number = 0;
 
     @Override
-    public synchronized void run() {
-        number ++;
+    public void run() {
+        Practice01.increase();
     }
 
     public static void main(String[] args) throws Exception {
         // TODO
-        Practice01[] thread = new Practice01[10];
         for (int i = 0 ; i < 10 ; i ++) {
-            thread[i] = new Practice01();
-            thread[i].start();
+            Practice01 thread = new Practice01();
+            thread.start();
         }
 
         Thread.sleep(2000);
         System.out.println("number: " + number);
+    }
+
+    public static synchronized void increase() {
+        number++;
     }
 }
