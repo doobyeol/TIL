@@ -33,7 +33,7 @@ public class MainController {
         String subject = "안녕하세요! 테스트 메일입니다.";
         String text = "<h1>안녕하세요!</h1><p>테스트 메일입니다!</p>";
 
-        mailComponents.sendMail(email, subject, text);
+//        mailComponents.sendMail(email, subject, text);
 
         return "index";
     }

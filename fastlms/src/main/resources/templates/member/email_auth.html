@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>이메일 인증</title>
+</head>
+<body>
+    <div>
+        <h1>이메일 인증</h1>
+        <p th:if="${result eq true}">이메일 인증이 완료 되었습니다.</p>
+        <p th:if="${result eq false}">이메일 인증이 실패하였습니다.</p>
+    </div>
+</body>
+</html>
