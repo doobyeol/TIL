@@ -10,6 +10,8 @@ package com.zerobase.fastlms;
 // 후보군 : 클래스(비효율적,탈락), 속성(용도가 다름), 메소드 (기능을 수행하는 메소드가 적절)
 // http://localhost:8080/
 
+import com.zerobase.fastlms.components.MailComponents;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,11 +20,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@RequiredArgsConstructor
 @Controller
 public class MainController {
 
+    private final MailComponents mailComponents;
+
     @RequestMapping("/")
     public String index() {
+
+        String email = "doobyeol@gmail.com";
+        String subject = "안녕하세요! 테스트 메일입니다.";
+        String text = "<h1>안녕하세요!</h1><p>테스트 메일입니다!</p>";
+
+        mailComponents.sendMail(email, subject, text);
+
         return "index";
     }
 
